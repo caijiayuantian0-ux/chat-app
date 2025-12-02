@@ -1,6 +1,7 @@
 class Message < ApplicationRecord
-  has_many :room_users
-  has_many :users, through: :room_users
-  belongs_to :room      # ← これも必要なはず
+  belongs_to :room      
   belongs_to :user 
+  has_one_attached :image
+
+  validates :content, presence: true
 end
